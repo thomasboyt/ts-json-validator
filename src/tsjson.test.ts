@@ -108,7 +108,7 @@ describe("Sanity-checks:", () => {
     const parser = new TsjsonParser(S({ type: "object", required: [] }));
     const parsed = parser.parse(JSON.stringify({}));
     expect(parsed).toStrictEqual({});
-    expectType<{ [x: string]: unknown }>(parsed);
+    expectType<{}>(parsed);
     expect(parser.schema).toMatchObject({ type: "object" });
     expect(ajv.validateSchema(parser.schema)).toBe(true);
   });
