@@ -80,7 +80,7 @@ type SimpleTypeConstraint<
   : Type extends "null"
   ? null
   : Type extends "object"
-  ? { [k: string]: unknown }
+  ? {}
   : Type extends "string"
   ? string
   : unknown;
