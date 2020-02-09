@@ -19,9 +19,9 @@ export type Validated<T extends SchemaLike> = T[typeof InternalTypeSymbol];
 export class TsjsonParser<T extends SchemaLike> {
   public readonly schema: T;
   private readonly validator: Ajv.ValidateFunction;
-  constructor(schema: T) {
+  constructor(schema: T, opts?: Ajv.Options) {
     this.schema = schema;
-    const ajv = new Ajv();
+    const ajv = new Ajv(opts);
     this.validator = ajv.compile(schema);
   }
 
